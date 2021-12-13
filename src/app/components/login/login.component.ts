@@ -20,4 +20,7 @@ form:FormGroup;
   ngOnInit(): void {
   }
 
+  ingresar(){
+    console.log(this.form);
+  }
 }
