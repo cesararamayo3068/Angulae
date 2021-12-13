@@ -9,7 +9,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit {
 form:FormGroup;
-  
+  loading=false;
+
  constructor(private fb:FormBuilder ,private _snackBar: MatSnackBar) { 
    this.form=this.fb.group({
      usuario:['',Validators.required],
@@ -27,9 +28,11 @@ form:FormGroup;
     const password=this.form.value.password;
     if(usuario =='jperez' && password =='admin123'){
       //redireccionamos al dashboard
+      this.falsoloading();
     } else {
      //mostra un mensaje de error;
      this.error();
+     this.form.reset();
 
     }
     }
@@ -42,6 +45,12 @@ form:FormGroup;
 
       })
     }
-
+    falsoloading(){
+      this.loading=true;
+      setTimeout(()=>{
+        //Redireccionamos al dashboard
+        this.loading=false;
+      },1500);
+    }
   }
 
