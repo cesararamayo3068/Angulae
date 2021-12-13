@@ -21,6 +21,15 @@ form:FormGroup;
   }
 
   ingresar(){
-    console.log(this.form);
+    
+    const usuario=this.form.value.usuario;
+    const password=this.form.value.password;
+    if(usuario=='jperez' && password=='admin123'){
+      //redireccionamos al dashboard
+    } else {
+     //mostra un mensaje de error;
+    }
+    }
+
   }
-}
+
