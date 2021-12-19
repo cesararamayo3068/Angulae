@@ -2,6 +2,11 @@
     <mat-toolbar>
         <span>Usuarios</span>
     </mat-toolbar>
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input autocomplete="off">
+    </mat-form-field>
+    
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
        <!-- Position Column -->
