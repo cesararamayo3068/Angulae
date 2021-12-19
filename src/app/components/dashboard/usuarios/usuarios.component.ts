@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Usuario } from 'src/app/interfaces/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
  
 @Component({
@@ -12,26 +13,24 @@ import { Usuario } from 'src/app/interfaces/usuario';
 })
 export class UsuariosComponent implements OnInit {
 
-  ListUsuarios: Usuario[] = [
-    {usuario: "jperez", nombre: 'Juan', apellido: "Perez",sexo: 'Masculino'},
-    {usuario: "mgomez", nombre: 'Martin', apellido: "Gomez",sexo: 'Masculino'},
-    {usuario: "ngarcia", nombre: 'Nicolas', apellido: "Garcia",sexo: 'Masculino'},
-    {usuario: "mgomez", nombre: 'Micaela', apellido: "Gomez",sexo: 'Femenino'},
-    {usuario: "jperez", nombre: 'Juan', apellido: "Perez",sexo: 'Masculino'},
-    {usuario: "jperez", nombre: 'Juan', apellido: "Perez",sexo: 'Masculino'},
-  ];
+  listUsuarios:Usuario[] = [];
   displayedColumns: string[] = ['usuario', 'nombre', 'apellido', 'sexo','acciones'];
   
-  dataSource = new MatTableDataSource(this.ListUsuarios);
+  dataSource!:MatTableDataSource<any>;
  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor() { }
+  constructor(private _usuarioService:UsuarioService) { }
 
   ngOnInit(): void {
+    this.cargarUsuarios();
+  }
+
+  cargarUsuarios(){
+    this.listUsuarios=this._usuarioService.getUsuario();
+    this.dataSource=new MatTableDataSource(this.listUsuarios);
   }
 
   ngAfterViewInit() {
