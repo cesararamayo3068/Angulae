@@ -15,6 +15,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 
 
@@ -33,7 +35,8 @@ import {MatTableModule} from '@angular/material/table';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule
     
     
   ],
@@ -49,7 +52,8 @@ import {MatTableModule} from '@angular/material/table';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule
 
   ]
 })
