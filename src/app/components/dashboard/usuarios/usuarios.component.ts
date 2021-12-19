@@ -42,4 +42,11 @@ export class UsuariosComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  eliminarUsuario(index:number){
+    console.log(index);
+    this._usuarioService.eliminarUsuario(index);
+    this.cargarUsuarios();
+
+  }
 }

@@ -22,4 +22,9 @@ export class UsuarioService {
     //retorna una copia del listado de Usuarios
     return this.ListUsuarios.slice();
   }
+
+  eliminarUsuario(index:number){
+    this.ListUsuarios.splice(index,1);
+
+  }
 }
