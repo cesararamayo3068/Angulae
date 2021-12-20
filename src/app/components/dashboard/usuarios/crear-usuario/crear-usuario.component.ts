@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crear-usuario.component.css']
 })
 export class CrearUsuarioComponent implements OnInit {
-
+  sexo:any[]=['Masculino' , 'Femenino']
+  
   constructor() { }
 
   ngOnInit(): void {
