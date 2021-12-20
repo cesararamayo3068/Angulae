@@ -27,4 +27,7 @@ export class UsuarioService {
     this.ListUsuarios.splice(index,1);
 
   }
+  agregarUsuario(usuario:Usuario){
+    this.ListUsuarios.unshift(usuario);
+  }
 }
